@@ -3,4 +3,7 @@ from django.shortcuts import render
 
 def index(request):
     # return the home page
-    return render(request, 'visitapp/index.html')
+    context = {
+        'home_in_navabar': 'active',
+    }
+    return render(request, 'visitapp/index.html', context)

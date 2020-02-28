@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="fr">
+        
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Starting Base django website">
+        <meta name="author" content="JBthePenguin">
+        <!-- Favicon -->
+        <link rel='shortcut icon' type='image/x-icon' href="{% static 'visitapp/img/favicon.ico' %}" />
+        <!---->
+        <!-- Title -->
+        <title>
+            Simple django website
+        </title>    
+        <!---->
+        <!-- CSS -->
+        <link href="{% static 'visitapp/css/custom_styles.css' %}" rel="stylesheet">
+        <!---->
+    </head>
+
+    <body>
+        <!-- NAVBAR -->
+        {% include 'visitapp/navbar.html' %}
+        <!---->
+        <!-- CONTENT -->
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+        <!---->
+        <!-- SCRIPTS -->
+        <script src="{% static 'visitapp/js/custom_script.js' %}"></script>
+        <!---->
+    </body>
+
+</html>

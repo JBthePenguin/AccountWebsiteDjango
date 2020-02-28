@@ -10,7 +10,7 @@ Download *SimpleWebsite* and inside it:
 $ virtualenv -p python3 env
 $ source env/bin/activate
 ```
-- install all necessary dependencies ([django](https://www.djangoproject.com/foundation/), [django-debug-toolbar](https://django-debug-toolbar.readthedocs.io/en/stable/)):
+- install all necessary dependencies ([django](https://www.djangoproject.com/foundation/), [django-debug-toolbar](https://django-debug-toolbar.readthedocs.io/en/stable/), [django-bootstrap4](https://django-bootstrap4.readthedocs.io/en/latest/index.html)):
 ```shell
 (env)$ pip install -r requirements.txt
 ```

@@ -1,0 +1,19 @@
+{% load bootstrap4 %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{% url 'index' %}">Simple django website</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav container">
+            <li class="nav-item mx-auto">
+                <a class="nav-link {{ song_navbar }}" href="{% url 'index' %}"><h4>Home</h4></a>
+            </li>
+            <!-- Here another links -->
+        </ul>
+    </div>
+</nav>
