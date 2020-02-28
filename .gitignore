@@ -1,0 +1,11 @@
+db.sqlite3
+
+env/
+
+website/__pycache__/
+
+website/settings/__pycache__/
+
+visitapp/__pycache__/
+
+visitapp/migrations/__pycache__/
