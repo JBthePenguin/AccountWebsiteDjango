@@ -1,4 +1,10 @@
 {% load static %}
+
+{% load bootstrap4 %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
 <!DOCTYPE html>
 
 <html lang="fr">
@@ -26,10 +32,12 @@
         {% include 'visitapp/navbar.html' %}
         <!---->
         <!-- CONTENT -->
-        <div class="container">
+        <main role="main" class="container text-center">
             {% block content %}{% endblock %}
-        </div>
+        </main>
         <!---->
+        <!-- FOOTER -->
+        {% include 'visitapp/footer.html' %}
         <!-- SCRIPTS -->
         <script src="{% static 'visitapp/js/custom_script.js' %}"></script>
         <!---->

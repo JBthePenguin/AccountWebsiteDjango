@@ -1,3 +1,7 @@
+commit.sh
+
+push.sh
+
 db.sqlite3
 
 env/

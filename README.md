@@ -1,7 +1,9 @@
 ## Base for a simple Django website
 
-A starting point for a simple website using django and his default admin site.  
-There is also a navbar using bootstrap 4 to be responsive.
+A starting point for a simple website using [django](https://www.djangoproject.com/foundation/) and [django-bootstrap4](https://django-bootstrap4.readthedocs.io/en/latest/index.html):
+- template base with navbar and footer
+- home page
+- default admin site.
 
 ### How to install?
 
