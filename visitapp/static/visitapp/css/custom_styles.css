@@ -1,9 +1,12 @@
-/* Navbar */
-.nav-link, .navbar-toggler:focus, .navbar-toggler:active {
-    outline: none;
+/* Links */
+a {
+  outline: none;
 }
+
+/* Navbar */
 .navbar-toggler:focus, .navbar-toggler:active {
-    box-shadow: none;
+  outline: none;
+  box-shadow: none;
 }
 .nav-item {
   margin-right: 1rem;
@@ -25,4 +28,10 @@ body {
   width: 100%;
   height: 51px; /* Set the fixed height of the footer here */
   line-height: 51px; /* Vertically center the text there */
+}
+
+/* Footer */
+footer a {
+  margin-right: 1rem;
+  margin-left: 1rem;
 }

@@ -1,5 +1,10 @@
-<footer class="footer bg-dark text-white">
+{% load fontawesome_5 %}
+
+<footer class="footer bg-dark text-center">
     <div class="container">
-        Place sticky footer content here.
+        <a href="https://github.com/JBthePenguin" onclick='window.open(this.href);  return false;'>{% fa5_icon 'github' 'fab' size='fa-lg' class='text-white' %}</a>
+        <a href="https://twitter.com/JBthePenguin" onclick='window.open(this.href);  return false;'>{% fa5_icon 'twitter' 'fab' size='fa-lg' class='text-info' %}</a>
+        <a href="https://www.linkedin.com/in/jean-baptiste-labaty-a5b084155/" onclick='window.open(this.href);  return false;'>{% fa5_icon 'linkedin' 'fab' class='text-primary' size='fa-lg' %}</a>
+        <a href="mailto:jbthepenguin@netcourrier.com">{% fa5_icon 'envelope' 'far' class='text-danger' size='fa-lg' %}</a>
     </div>
 </footer>
