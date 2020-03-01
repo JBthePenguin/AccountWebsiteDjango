@@ -1,5 +1,6 @@
 {% load static %}
 {% load bootstrap4 %}
+{% load fontawesome_5 %}
 
 <!DOCTYPE html>
 
@@ -12,27 +13,23 @@
         <meta name="author" content="JBthePenguin">
         <!-- Favicon -->
         <link rel='shortcut icon' type='image/x-icon' href="{% static 'visitapp/img/favicon.ico' %}" />
-        <!---->
         <!-- Title -->
-        <title>
-            Simple django website
-        </title>    
-        <!---->
+        <title>{{ title_site }}</title>    
+        <!-- FONTS -->
+        {% fontawesome_5_static %}
         <!-- CSS -->
         {% bootstrap_css %}
         <link href="{% static 'visitapp/css/custom_styles.css' %}" rel="stylesheet">
-        <!---->
     </head>
 
     <body>
         <!-- NAVBAR -->
         {% include 'visitapp/navbar.html' %}
         <!---->
-        <!-- CONTENT -->
+        <!-- MAIN -->
         <main role="main" class="container text-center">
             {% block content %}{% endblock %}
         </main>
-        <!---->
         <!-- FOOTER -->
         {% include 'visitapp/footer.html' %}
         <!-- SCRIPTS -->

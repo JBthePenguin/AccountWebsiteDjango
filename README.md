@@ -23,7 +23,7 @@ $ cd SimpleWebsiteDjango
 $ virtualenv -p python3 env
 $ source env/bin/activate
 ```
-Install all necessary dependencies ([django](https://www.djangoproject.com/foundation/), [django-debug-toolbar](https://django-debug-toolbar.readthedocs.io/en/stable/), [django-bootstrap4](https://django-bootstrap4.readthedocs.io/en/latest/index.html)):
+Install all necessary dependencies ([django](https://www.djangoproject.com/foundation/), [django-debug-toolbar](https://django-debug-toolbar.readthedocs.io/en/stable/), [django-bootstrap4](https://django-bootstrap4.readthedocs.io/en/latest/index.html), [django-fontawesome-5](https://github.com/BenjjinF/django-fontawesome-5)):
 ```shell
 (env)$ pip install -r requirements.txt
 ```

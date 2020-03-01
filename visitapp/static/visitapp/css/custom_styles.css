@@ -1,15 +1,17 @@
 /* Navbar */
-
 .nav-link, .navbar-toggler:focus, .navbar-toggler:active {
     outline: none;
 }
 .navbar-toggler:focus, .navbar-toggler:active {
     box-shadow: none;
 }
+.nav-item {
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
 
 
 /* Sticky footer styles */
-
 html {
   position: relative;
   min-height: 100%;

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'visitapp',
     'bootstrap4',
+    'fontawesome_5',
 ]
 
 MIDDLEWARE = [

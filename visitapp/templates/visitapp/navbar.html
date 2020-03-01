@@ -1,20 +1,20 @@
 <!-- Template for the navbar -->
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
     <!-- logo -->
-    <a class="navbar-brand" href="{% url 'index' %}">Simple django website</a>
+    <a class="navbar-brand" href="{% url 'index' %}">{{ nav_brand }}</a>
     <!-- button for small screen -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="true" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <!-- Links -->
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav container">
+    <div id="navbarCollapse" class="collapse navbar-collapse">
+        <ul class="navbar-nav">
             <!-- Home -->
-            <li class="nav-item mx-auto">
-                <a class="nav-link {{ home_in_nav }}" href="{% url 'index' %}">Home</a>
+            <li class="nav-item {{ home_in_nav }}">
+                <a class="nav-link" href="{% url 'index' %}">Home</a>
             </li>
             <!-- Here another links -->
-            <li class="nav-item mx-auto">
+            <li class="nav-item">
                 <a class="nav-link" href="">...</a>
             </li>
         </ul>
