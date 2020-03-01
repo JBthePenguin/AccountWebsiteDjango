@@ -3,7 +3,8 @@
 A starting point for a simple website using [django](https://www.djangoproject.com/foundation/) and [django-bootstrap4](https://django-bootstrap4.readthedocs.io/en/latest/index.html):
 - template base with navbar and footer
 - home page
-- default admin site.
+- default admin site
+- debug toolbar for development
 
 ### How to install?
 

@@ -1,13 +1,9 @@
 {% load static %}
-
 {% load bootstrap4 %}
-
-{% bootstrap_css %}
-{% bootstrap_javascript jquery='full' %}
 
 <!DOCTYPE html>
 
-<html lang="fr">
+<html lang="en">
         
     <head>
         <meta charset="utf-8">
@@ -23,6 +19,7 @@
         </title>    
         <!---->
         <!-- CSS -->
+        {% bootstrap_css %}
         <link href="{% static 'visitapp/css/custom_styles.css' %}" rel="stylesheet">
         <!---->
     </head>
@@ -39,6 +36,7 @@
         <!-- FOOTER -->
         {% include 'visitapp/footer.html' %}
         <!-- SCRIPTS -->
+        {% bootstrap_javascript jquery='full' %}
         <script src="{% static 'visitapp/js/custom_script.js' %}"></script>
         <!---->
     </body>
