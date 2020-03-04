@@ -13,3 +13,5 @@ website/settings/__pycache__/
 visitapp/__pycache__/
 
 visitapp/migrations/__pycache__/
+
+visitapp/tests/__pycache__/

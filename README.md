@@ -5,6 +5,7 @@ A starting point for a simple website using [django](https://www.djangoproject.c
 - home page
 - default admin site
 - debug toolbar for development
+- tests
 
 ### How to install?
 
@@ -23,7 +24,7 @@ $ cd SimpleWebsiteDjango
 $ virtualenv -p python3 env
 $ source env/bin/activate
 ```
-Install all necessary dependencies ([django](https://www.djangoproject.com/foundation/), [django-debug-toolbar](https://django-debug-toolbar.readthedocs.io/en/stable/), [django-bootstrap4](https://django-bootstrap4.readthedocs.io/en/latest/index.html), [django-fontawesome-5](https://github.com/BenjjinF/django-fontawesome-5)):
+Install all necessary dependencies ([django](https://www.djangoproject.com/foundation/), [django-debug-toolbar](https://django-debug-toolbar.readthedocs.io/en/stable/), [django-bootstrap4](https://django-bootstrap4.readthedocs.io/en/latest/index.html), [django-fontawesome-5](https://github.com/BenjjinF/django-fontawesome-5), [selenium](https://selenium-python.readthedocs.io/)):
 ```shell
 (env)$ pip install -r requirements.txt
 ```
@@ -45,3 +46,15 @@ Start the server (the virtual environment have to be activated):
 With your favorite browser, go to url:
 - [http://127.0.0.1:8000/](http://127.0.0.1:8000/) to see the home page
 - [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin) to use the admin site.
+
+
+### Tests
+The tests use [selenium](https://selenium-python.readthedocs.io/) and maybe you have to install [GreckoWebdriver](https://github.com/mozilla/geckodriver/releases) to use firefox.
+Run the tests:
+```shell 
+(env)$ python manage.py test -v 2
+```
+If you want to use Chrome, install [ChromeWebDriver](http://chromedriver.chromium.org/downloads) and update in all app's tests.py line 2:
+```python
+from selenium.webdriver.chrome.webdriver import WebDriver
+```

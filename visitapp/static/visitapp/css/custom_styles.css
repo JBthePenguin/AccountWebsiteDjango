@@ -1,3 +1,21 @@
+/* Fonts */
+h1 {
+  font-family: 'Spartan', sans-serif;
+  font-size: 2rem;
+}
+
+nav, p {
+  font-family: 'Oxanium', cursive;
+}
+
+.navbar-brand {
+  font-size: 2rem;
+}
+
+.nav-link {
+  font-size: 1.25rem;
+}
+
 /* Links */
 a {
   outline: none;
@@ -21,6 +39,7 @@ html {
 }
 body {
   margin-bottom: 51px; /* Margin bottom by footer height */
+  background-color: #c2c3c4 !important;
 }
 .footer {
   position: absolute;

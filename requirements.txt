@@ -5,3 +5,5 @@ django-debug-toolbar
 django-bootstrap4
 
 django-fontawesome-5
+
+selenium

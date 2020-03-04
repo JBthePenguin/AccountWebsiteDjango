@@ -14,8 +14,9 @@
         <!-- Favicon -->
         <link rel='shortcut icon' type='image/x-icon' href="{% static 'visitapp/img/favicon.ico' %}" />
         <!-- Title -->
-        <title>{{ title_site }}</title>    
+        <title>{{ title_site }} | {{ page_title }}</title>    
         <!-- FONTS -->
+        <link href="https://fonts.googleapis.com/css?family=Spartan:bold|Oxanium&display=swap" rel="stylesheet">   
         {% fontawesome_5_static %}
         <!-- CSS -->
         {% bootstrap_css %}
@@ -26,9 +27,17 @@
         <!-- NAVBAR -->
         {% include 'visitapp/navbar.html' %}
         <!---->
+        <!-- HEADER -->
+        <header class="jumbotron jumbotron-fluid bg-secondary text-center px-2 mb-0">
+            <div class="container bg-white py-1 rounded">
+                {% block header %}{% endblock %}
+            </div>
+        </header>
         <!-- MAIN -->
-        <main role="main" class="container text-center">
-            {% block content %}{% endblock %}
+        <main role="main" class="p-3 mt-0">
+            <div class="container bg-dark text-white p-2 rounded">
+                {% block main %}{% endblock %}
+            </div>
         </main>
         <!-- FOOTER -->
         {% include 'visitapp/footer.html' %}
