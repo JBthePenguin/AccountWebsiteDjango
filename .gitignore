@@ -4,6 +4,8 @@ push.sh
 
 db.sqlite3
 
+geckodriver.log
+
 env/
 
 website/__pycache__/
