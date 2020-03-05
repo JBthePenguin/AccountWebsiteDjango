@@ -1,11 +1,11 @@
 ## Base for a simple Django website
 
-A starting point for a simple website using [django](https://www.djangoproject.com/foundation/) and [django-bootstrap4](https://django-bootstrap4.readthedocs.io/en/latest/index.html):
-- template base with navbar and footer
-- home page
+A starting point for a simple website using [Django](https://www.djangoproject.com/foundation/), [Bootstrap](https://getbootstrap.com/docs/4.4/getting-started/introduction/), [Font Awesome](https://fontawesome.com/icons) and [Google Fonts](https://fonts.google.com/). It contains:
+- template base that include navbar and footer templates
+- templates for each page that extend base with header and main
 - default admin site
 - debug toolbar for development
-- tests
+- tests for views, templates and responsive design
 
 ### How to install?
 
@@ -44,7 +44,7 @@ Start the server (the virtual environment have to be activated):
 (env)$ python manage.py runserver
 ```
 With your favorite browser, go to url:
-- [http://127.0.0.1:8000/](http://127.0.0.1:8000/) to see the home page
+- [http://127.0.0.1:8000/](http://127.0.0.1:8000/) to see the home page and visit the site.
 - [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin) to use the admin site.
 
 
@@ -54,7 +54,7 @@ Run the tests:
 ```shell 
 (env)$ python manage.py test -v 2
 ```
-If you want to use Chrome, install [ChromeWebDriver](http://chromedriver.chromium.org/downloads) and update in all app's tests.py line 2:
+If you want to use Chrome, install [ChromeWebDriver](http://chromedriver.chromium.org/downloads) and change in *visitapp/tests/browser.py line 2*:
 ```python
 from selenium.webdriver.chrome.webdriver import WebDriver
 ```

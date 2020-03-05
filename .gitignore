@@ -17,3 +17,11 @@ visitapp/__pycache__/
 visitapp/migrations/__pycache__/
 
 visitapp/tests/__pycache__/
+
+visitapp/tests/img_responsive/navbar/*.png
+
+visitapp/tests/img_responsive/home/*.png
+
+visitapp/tests/img_responsive/page_one/*.png
+
+visitapp/tests/img_responsive/page_two/*.png
