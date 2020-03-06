@@ -1,8 +1,8 @@
 from django.shortcuts import render
 
 DEFAULT_CONTEXT = {
-    'title_site': 'Simple Website',
-    'nav_brand': 'Simple Base',
+    'title_site': 'Account Website',
+    'nav_brand': 'Account Base',
 }
 
 

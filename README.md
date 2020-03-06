@@ -1,6 +1,6 @@
-## Base for a simple Django website
+## ***!!! Coming soon !!!*** Base for a Django website with account
 
-A starting point for a simple website using [Django](https://www.djangoproject.com/foundation/), [Bootstrap](https://getbootstrap.com/docs/4.4/getting-started/introduction/), [Font Awesome](https://fontawesome.com/icons) and [Google Fonts](https://fonts.google.com/). It contains:
+A starting point for a website with account registration and authentification. It's using [Django](https://www.djangoproject.com/foundation/), [Bootstrap](https://getbootstrap.com/docs/4.4/getting-started/introduction/), [Font Awesome](https://fontawesome.com/icons) and [Google Fonts](https://fonts.google.com/). It contains:
 - template base that include navbar and footer templates
 - templates for each page that extend base with header and main
 - default admin site
@@ -10,17 +10,17 @@ A starting point for a simple website using [Django](https://www.djangoproject.c
 ### How to install?
 
 #### First way: with his install bash script
-Execute [install_simple.sh](https://github.com/JBthePenguin/BasesWebsiteDjango/blob/master/install_scripts/install_simple.sh) with the command **source**. You can pass a new name for your root folder in parameter:
+Execute [install.sh]() with the command **source**. You can pass a new name for your root folder in parameter:
 ```shell
-source install_simple.sh YourWebsite
+source install.sh YourWebsite
 ```
 First you are asked to choose the place for the root directory of your website, and after you have to register the superuser at the end of the installation.
 
 #### Second way: step by step
-Clone me, create a virtual environment inside *SimpleWebsiteDjango* with [virtualenv](https://virtualenv.pypa.io/en/stable/) (*!!! maybe you have to install !!!*) and activate it:
+Clone me, create a virtual environment inside *AccountWebsiteDjango* with [virtualenv](https://virtualenv.pypa.io/en/stable/) (*!!! maybe you have to install !!!*) and activate it:
 ```shell
-$ git clone https://github.com/JBthePenguin/SimpleWebsiteDjango.git
-$ cd SimpleWebsiteDjango
+$ git clone https://github.com/JBthePenguin/AccountWebsiteDjango.git
+$ cd AccountWebsiteDjango
 $ virtualenv -p python3 env
 $ source env/bin/activate
 ```

@@ -22,7 +22,7 @@ class TemplatesTests(Browser):
             self.selenium.get(
                 '%s%s' % (self.live_server_url, reverse(title[0])))
             title_site = self.selenium.title
-            self.assertEqual(title_site, 'Simple Website | %s' % (title[1]))
+            self.assertEqual(title_site, 'Account Website | %s' % (title[1]))
 
     def link_url(self, link, title_page, link_url):
         """ test if a click on a link go to the correct url """
@@ -42,7 +42,7 @@ class TemplatesTests(Browser):
         # nav brand text
         self.selenium.get('%s%s' % (self.live_server_url, reverse('home')))
         nav_brand = self.selenium.find_element_by_class_name('navbar-brand')
-        self.assertEqual(nav_brand.text, "Simple Base")
+        self.assertEqual(nav_brand.text, "Account Base")
         # number of nav links
         nav_links = self.selenium.find_elements_by_class_name("nav-link")
         self.assertEqual(len(nav_links), 3)
@@ -51,14 +51,14 @@ class TemplatesTests(Browser):
             ('Page 1', 'Page 1', reverse('page one')),
             ('Home', 'Home', reverse('home')),
             ('Page 2', 'Page 2', reverse('page two')),
-            ('Simple Base', 'Home', reverse('home')), ]  # nav brand link
+            ('Account Base', 'Home', reverse('home')), ]  # nav brand link
         i = 0
         for nav_link in nav_links:
             nav_bar = self.selenium.find_element_by_class_name('navbar')
             link = nav_bar.find_element_by_link_text(nav_link[0])
             self.link_url(link, nav_link[1], nav_link[2])
             # active link
-            if nav_link[0] != 'Simple Base':
+            if nav_link[0] != 'Account Base':
                 nav_bar = self.selenium.find_element_by_class_name('navbar')
                 link = nav_bar.find_element_by_link_text(nav_link[0])
                 nav_item = link.find_element_by_xpath("..")
