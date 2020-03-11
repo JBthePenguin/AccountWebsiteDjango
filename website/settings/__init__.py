@@ -39,8 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'debug_toolbar',
     'visitapp',
+    'accountapp',
     'bootstrap4',
     'fontawesome_5',
+    'phone_field',
+    'django_registration',
 ]
 
 MIDDLEWARE = [
@@ -126,3 +129,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 INTERNAL_IPS = ['127.0.0.1']
+
+# Auth User
+AUTH_USER_MODEL = 'accountapp.MyUser'

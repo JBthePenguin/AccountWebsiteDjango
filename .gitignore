@@ -12,11 +12,13 @@ website/__pycache__/
 
 website/settings/__pycache__/
 
-visitapp/__pycache__/
+*app/__pycache__/
 
-visitapp/migrations/__pycache__/
+*app/migrations/__pycache__/
 
-visitapp/tests/__pycache__/
+*app/migrations/0*.py
+
+*app/tests/__pycache__/
 
 visitapp/tests/img_responsive/navbar/*.png
 
@@ -25,3 +27,5 @@ visitapp/tests/img_responsive/home/*.png
 visitapp/tests/img_responsive/page_one/*.png
 
 visitapp/tests/img_responsive/page_two/*.png
+
+

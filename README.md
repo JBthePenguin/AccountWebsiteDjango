@@ -6,6 +6,7 @@ A starting point for a website with account registration and authentification. I
 - default admin site
 - debug toolbar for development
 - tests for views, templates and responsive design
+- User custom model, a staff group.
 
 ### How to install?
 

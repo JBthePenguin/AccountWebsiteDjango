@@ -6,4 +6,8 @@ django-bootstrap4
 
 django-fontawesome-5
 
+django-phone-field
+
+django-registration
+
 selenium
