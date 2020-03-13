@@ -3,7 +3,11 @@
 
 {% block form_top %}
   {% if not is_popup %}
-    <p>{% trans 'First, enter a username, an email and password. Then, you’ll be able to edit more user options.' %}</p>
+    {% if request.user.is_superuser %}
+        <p>{% trans 'First, enter a username, password and choose if staff or not, superuser or not. Then, you’ll be able to edit more user options.' %}</p>
+    {% else %}
+        <p>{% trans 'First, enter a username and password. Then, you’ll be able to edit more user options.' %}</p>
+    {% endif %}    
   {% else %}
     <p>{% trans "Enter a username, an email and password." %}</p>
   {% endif %}

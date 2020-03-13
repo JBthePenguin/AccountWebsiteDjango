@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'accountapp',
     'bootstrap4',
     'fontawesome_5',
-    'phone_field',
     'django_registration',
 ]
 
