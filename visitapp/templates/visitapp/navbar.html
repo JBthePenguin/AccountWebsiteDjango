@@ -1,7 +1,8 @@
 {% load static %}
+{% load fontawesome_5 %}
 
 <!-- Template for the navbar -->
-<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <!-- logo -->
     <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'visitapp/img/logo65.png' %}" class="img-fluid" alt="">{{ nav_brand }}</a>
     <!-- button for small screen -->
@@ -22,6 +23,15 @@
             <!-- Page two -->
             <li class="nav-item {{ page_two_in_nav }}">
                 <a class="nav-link " href="{% url 'page two' %}">Page 2</a>
+            </li>
+        </ul>
+        <!-- login / signin buttons -->
+        <ul class="navbar-nav ml-auto mr-2">
+            <li class="nav-item {{ login_in_nav }}">
+                <a class="nav-link" href="{% url 'login' %}">{% fa5_icon 'sign-in-alt' 'fas' %} Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">{% fa5_icon 'user-plus' 'fas' %} Sign Up</a>
             </li>
         </ul>
     </div>

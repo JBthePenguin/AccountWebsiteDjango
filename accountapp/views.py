@@ -1,5 +1,14 @@
 from django.shortcuts import render
+from django.contrib.auth.views import LoginView
 from visitapp.views import DEFAULT_CONTEXT
+
+
+class MyLoginView(LoginView):
+    extra_context = {
+        'page_title': 'Login',
+        'login_in_nav': 'active',
+    }
+    extra_context.update(DEFAULT_CONTEXT)
 
 
 def dashboard(request):
@@ -9,4 +18,4 @@ def dashboard(request):
     #     'home_in_nav': 'active',
     # }
     # context.update(DEFAULT_CONTEXT)
-    return render(request, 'visitapp/home.html', DEFAULT_CONTEXT)
+    return render(request, 'accountapp/dashboard.html', DEFAULT_CONTEXT)
