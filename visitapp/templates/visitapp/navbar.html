@@ -25,14 +25,19 @@
                 <a class="nav-link " href="{% url 'page two' %}">Page 2</a>
             </li>
         </ul>
-        <!-- login / signin buttons -->
-        <ul class="navbar-nav ml-auto mr-2">
-            <li class="nav-item {{ login_in_nav }}">
-                <a class="nav-link" href="{% url 'login' %}">{% fa5_icon 'sign-in-alt' 'fas' %} Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">{% fa5_icon 'user-plus' 'fas' %} Sign Up</a>
-            </li>
-        </ul>
+        {% if user.is_authenticated %}
+            <!-- user / logout buttons -->
+            {% include 'accountapp/usernavbar.html' %}
+        {% else %}
+            <!-- login / signin buttons -->
+            <ul class="navbar-nav ml-auto mr-2">
+                <li class="nav-item {{ login_in_nav }}">
+                    <a class="nav-link" href="{% url 'login' %}">{% fa5_icon 'sign-in-alt' 'fas' %} Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">{% fa5_icon 'user-plus' 'fas' %} Sign Up</a>
+                </li>
+            </ul>
+        {% endif %}
     </div>
 </nav>

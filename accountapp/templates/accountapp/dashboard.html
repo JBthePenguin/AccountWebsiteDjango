@@ -1,1 +1,50 @@
-dashboard
+{% extends 'visitapp/base.html' %}
+
+{% load static %}
+
+<!-- Header -->
+{% block header %}
+<h1>{{ user.username }}</h1>
+{% endblock %}
+
+<!-- Main -->
+{% block main %}
+<div class="row mx-1">
+    <div class="card bg-secondary col-12 col-md-8 mx-auto py-2">
+        <div class="card-block row">
+            <div class="col-md-4 text-center pb-2">
+                <img class="rounded-circle" src="{% static 'accountapp/img/default-photo.png' %}" alt="photo">
+            </div>
+            <div class="col-md-8 my-auto text-center">
+                <h4 class="card-title text-dark">
+                    {{ user.first_name|title }} {{ user.last_name|upper }}
+                </h4>
+                <p class="card-text">
+                    <strong>Member since: <span class="badge badge-dark">{{ user.date_joined|date:'Y-m-d' }}</span></strong>
+                </p>
+                <p class="card-text">
+                    <strong>Last login: <span class="badge badge-dark">{{ user.last_login|date:'Y-m-d' }} at {{ user.last_login|date:'H:i' }}</span></strong>
+                </p>
+            </div>
+            <div class="col-md-8 mx-auto my-4 bg-dark py-2">
+                <ul class="nav nav-tabs pb-1 mb-2" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active btn-dark" id="basicInfo-tab" data-toggle="tab" href="#basicInfo" role="tab" aria-controls="basicInfo" aria-selected="true">Info</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-dark" id="contact-info-tab" data-toggle="tab" href="#contact-info" role="tab" aria-controls="contact-info" aria-selected="false">Contact</a>
+                    </li>
+                </ul>
+                <div class="tab-content ml-1" id="myTabContent">
+                    <div class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
+                        <strong>Date of birth: <span class="badge badge-light">{{ user.date_of_birth|date:'Y-m-d' }}</span></strong>
+                    </div>
+                    <div class="tab-pane fade" id="contact-info" role="tabpanel" aria-labelledby="contact-info-tab">
+                        <strong>Email address: <span class="badge badge-light">{{ user.email }}</span></strong>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+</div>
+{% endblock %}

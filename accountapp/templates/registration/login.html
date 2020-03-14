@@ -4,13 +4,13 @@
 
 <!-- Header -->
 {% block header %}
-<h2>Login</h2>
+<h1>Login</h1>
 {% endblock %}
 
 <!-- Main -->
 {% block main %}
 <div class="row mx-1">
-    <form method="post" class="col-lg-4 mx-auto bg-secondary rounded py-2">
+    <form method="post" class="col-md-8 col-lg-4 mx-auto bg-secondary rounded py-2">
         {% csrf_token %}
         {% bootstrap_form form %}
         {% bootstrap_button "Login" button_type="submit" button_class="btn-success" %}

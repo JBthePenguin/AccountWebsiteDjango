@@ -132,5 +132,7 @@ INTERNAL_IPS = ['127.0.0.1']
 # Auth User
 AUTH_USER_MODEL = 'accountapp.MyUser'
 
-# Login success redirect
-LOGIN_REDIRECT_URL = 'dashboard'
+# Login required redirect
+LOGIN_URL = 'login'
+# Logout redirect
+LOGOUT_REDIRECT_URL = 'home'

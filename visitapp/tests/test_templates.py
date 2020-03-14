@@ -45,12 +45,13 @@ class TemplatesTests(Browser):
         self.assertEqual(nav_brand.text, "Account Base")
         # number of nav links
         nav_links = self.selenium.find_elements_by_class_name("nav-link")
-        self.assertEqual(len(nav_links), 3)
+        self.assertEqual(len(nav_links), 5)
         # link text and url after click
         nav_links = [
             ('Page 1', 'Page 1', reverse('page one')),
             ('Home', 'Home', reverse('home')),
             ('Page 2', 'Page 2', reverse('page two')),
+            ('Login', 'Login', reverse('login')),
             ('Account Base', 'Home', reverse('home')), ]  # nav brand link
         i = 0
         for nav_link in nav_links:
