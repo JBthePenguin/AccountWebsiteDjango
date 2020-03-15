@@ -8,4 +8,6 @@ django-fontawesome-5
 
 django-registration
 
+django-stdimage
+
 selenium

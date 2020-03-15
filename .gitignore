@@ -8,6 +8,8 @@ geckodriver.log
 
 env/
 
+media/img/avatars/
+
 website/__pycache__/
 
 website/settings/__pycache__/

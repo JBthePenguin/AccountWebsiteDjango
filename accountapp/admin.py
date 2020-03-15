@@ -9,8 +9,8 @@ class MyUserAdmin(UserAdmin):
     """ Model for auth User in admin site """
     # lists to display, filter and search User
     list_display = (
-        'username', 'first_name', 'last_name', 'email',
-        'is_active', 'is_staff', 'is_superuser')
+        'username', 'first_name', 'last_name', 'email', 'avatar')
+        # 'is_active', 'is_staff', 'is_superuser')
     list_filter = ('is_active', 'groups', 'is_staff', 'is_superuser')
     search_fields = ('username', 'first_name', 'last_name', 'email')
     # add form custom template
@@ -100,7 +100,7 @@ class MyUserAdmin(UserAdmin):
             perm_fields += ('is_staff', 'user_permissions', 'is_superuser')
         return [
             (None, {
-                'fields': ('username', 'password')}),
+                'fields': ('avatar', 'username', 'password')}),
             (_('Personal info'), {
                 'fields': (
                     'first_name', 'last_name', 'email', 'date_of_birth')}),
