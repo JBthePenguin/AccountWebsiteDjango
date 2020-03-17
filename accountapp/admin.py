@@ -16,14 +16,22 @@ class MyClearableFileInput(ClearableFileInput):
 
     def format_value(self, value):
         """ return the default value for form error """
-        if getattr(value, 'url', False) is False:
-            return self.default_avatar
+        try:
+            getattr(value, 'url', False)
+        except ValueError:
+            pass
         else:
+            if getattr(value, 'url', False) is False:
+                # return the default value for form error
+                return self.default_avatar
+            # return the value for form
             return value
 
     def is_initial(self, value):
         """ return always true to display clear check button
-        every time (also in form error) """
+        if file exist and False if not """
+        if value.name == '':
+            return False
         return True
 
 
@@ -32,7 +40,7 @@ class MyUserAdmin(UserAdmin):
     """ Model for auth User in admin site """
     # lists to display, filter and search User
     list_display = (
-        'username', 'first_name', 'last_name', 'email',
+        'username', 'first_name', 'last_name', 'email', "avatar",
         'is_active', 'is_staff', 'is_superuser')
     list_filter = ('is_active', 'groups', 'is_staff', 'is_superuser')
     search_fields = ('username', 'first_name', 'last_name', 'email')
