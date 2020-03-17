@@ -1,7 +1,30 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import MyUser
+from .models import MyUser, MyImageField
 from django.utils.translation import ugettext_lazy as _
+from django.forms.widgets import ClearableFileInput
+
+
+class MyClearableFileInput(ClearableFileInput):
+    template_name = "admin/widgets/clearable_file_input.html"
+
+    def __init__(self, default_avatar):
+        """ init the clear input
+        with default avatar to use it in form error """
+        super().__init__()
+        self.default_avatar = default_avatar
+
+    def format_value(self, value):
+        """ return the default value for form error """
+        if getattr(value, 'url', False) is False:
+            return self.default_avatar
+        else:
+            return value
+
+    def is_initial(self, value):
+        """ return always true to display clear check button
+        every time (also in form error) """
+        return True
 
 
 @admin.register(MyUser)
@@ -9,8 +32,8 @@ class MyUserAdmin(UserAdmin):
     """ Model for auth User in admin site """
     # lists to display, filter and search User
     list_display = (
-        'username', 'first_name', 'last_name', 'email', 'avatar')
-        # 'is_active', 'is_staff', 'is_superuser')
+        'username', 'first_name', 'last_name', 'email',
+        'is_active', 'is_staff', 'is_superuser')
     list_filter = ('is_active', 'groups', 'is_staff', 'is_superuser')
     search_fields = ('username', 'first_name', 'last_name', 'email')
     # add form custom template
@@ -56,8 +79,8 @@ class MyUserAdmin(UserAdmin):
         """ override changeform_view to
         - change title """
         if object_id is not None:
-            # change form page
             obj = MyUser.objects.get(pk=object_id)
+            # change form page
             title = 'Change '
             if obj.is_staff:
                 if obj.is_superuser:
@@ -66,10 +89,17 @@ class MyUserAdmin(UserAdmin):
                     title += 'Staff User'
             else:
                 title += 'Non Staff User'
+            # change form widget
+            self.formfield_overrides = {
+                MyImageField: {
+                    'widget': MyClearableFileInput(obj.avatar)},
+            }
         else:
             # add form page
             title = 'Add a User'
         extra_context = {'title': title}
+        # self.form.Meta.widgets = {'avatar': CustomClearableFileInput}
+        # self.form.Meta.widgets['avatar'] = CustomClearableFileInput
         return super(MyUserAdmin, self).changeform_view(
             request, object_id, form_url, extra_context=extra_context)
 
