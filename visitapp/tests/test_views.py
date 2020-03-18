@@ -1,10 +1,10 @@
-# SimpleTestCase for all views
-from django.test import SimpleTestCase
+# Tests for all views in visitapp
+from django.test import TestCase
 from django.urls import reverse
 
 
-class ViewsTests(SimpleTestCase):
-    """ class test for views
+class ViewsUrlTemplate(TestCase):
+    """ class for test views with method to check
     - url and name
     - templates used """
 
@@ -18,6 +18,10 @@ class ViewsTests(SimpleTestCase):
         self.assertEqual(response.status_code, 200)
         for template in templates:
             self.assertTemplateUsed(response, template)
+
+
+class VisitViewsTests(ViewsUrlTemplate):
+    """ class test for views in visitapp """
 
     def test_home_view(self):
         """ tests for home view

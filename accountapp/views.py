@@ -17,7 +17,7 @@ class MyLoginView(LoginView):
         """ get login page """
         if self.request.user.is_authenticated:
             # redirect to dashboard if user is authentiated
-            return redirect('dashboard', username=self.request.user.username)
+            return redirect('dashboard')
         # custom authentication_form
         self.authentication_form = AuthenticationForm
         self.authentication_form.base_fields['username'].widget.attrs[
@@ -29,12 +29,6 @@ class MyLoginView(LoginView):
     def get_success_url(self):
         """ for login sucesss redirect to dashboard/username """
         return reverse('dashboard')
-
-
-@login_required
-def redirect_dasboard_user(request):
-    """ redirect to dasboard with username in url """
-    return redirect('dashboard', username=request.user.username)
 
 
 @login_required
