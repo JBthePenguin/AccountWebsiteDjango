@@ -8,7 +8,7 @@ geckodriver.log
 
 env/
 
-media/img/avatars/
+media/accountapp/img/avatars/avatar*.png
 
 website/__pycache__/
 

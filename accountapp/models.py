@@ -20,8 +20,8 @@ def validate_avatar_size(value):
 
 
 def avatar_directory_path(instance, filename):
-    # file will be uploaded to MEDIA_ROOT/img/avatars/username.png
-    return 'img/avatars/{0}.png'.format(instance.username, )
+    # file will be uploaded to MEDIA_ROOTaccountapp/img/avatars/avatarid.png
+    return 'accountapp/img/avatars/avatar{0}.png'.format(instance.id, )
 
 
 class MyImageField(StdImageField):

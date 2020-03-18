@@ -28,7 +28,7 @@ class MyLoginView(LoginView):
 
     def get_success_url(self):
         """ for login sucesss redirect to dashboard/username """
-        return reverse('dashboard', args=[self.request.user.username])
+        return reverse('dashboard')
 
 
 @login_required
@@ -38,13 +38,10 @@ def redirect_dasboard_user(request):
 
 
 @login_required
-def dashboard(request, username):
+def dashboard(request):
     # return the dashboard for a user authenticated
-    if username != request.user.username:
-        # redirect to correct url if it isn't the good username used
-        return redirect('dashboard', username=request.user.username)
     context = {
-        'page_title': username,
+        'page_title': 'Dashboard',
         'user_in_nav': 'active',
     }
     context.update(DEFAULT_CONTEXT)

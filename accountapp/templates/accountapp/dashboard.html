@@ -15,7 +15,7 @@
             <!-- Avatar -->
             <div class="col-md-4 text-center pb-2">
                 {% if user.avatar == '' %}
-                    <img class="rounded-circle bg-light" src="{{ MEDIA_URL }}img/default-avatar.png" alt="photo">
+                    <img class="rounded-circle bg-light" src="{{ MEDIA_URL }}accountapp/img/avatars/default-avatar.png" alt="photo">
                 {% else %}
                     <img class="rounded-circle bg-light" src="{{ user.avatar.thumbnail.url }}" alt="photo">
                 {% endif %}

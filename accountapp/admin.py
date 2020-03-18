@@ -2,37 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from .models import MyUser, MyImageField
 from django.utils.translation import ugettext_lazy as _
-from django.forms.widgets import ClearableFileInput
-
-
-class MyClearableFileInput(ClearableFileInput):
-    template_name = "admin/widgets/clearable_file_input.html"
-
-    def __init__(self, default_avatar):
-        """ init the clear input
-        with default avatar to use it in form error """
-        super().__init__()
-        self.default_avatar = default_avatar
-
-    def format_value(self, value):
-        """ return the default value for form error """
-        try:
-            getattr(value, 'url', False)
-        except ValueError:
-            pass
-        else:
-            if getattr(value, 'url', False) is False:
-                # return the default value for form error
-                return self.default_avatar
-            # return the value for form
-            return value
-
-    def is_initial(self, value):
-        """ return always true to display clear check button
-        if file exist and False if not """
-        if value.name == '':
-            return False
-        return True
+from .forms import MyClearableFileInput
 
 
 @admin.register(MyUser)
@@ -97,7 +67,7 @@ class MyUserAdmin(UserAdmin):
                     title += 'Staff User'
             else:
                 title += 'Non Staff User'
-            # change form widget
+            # override form widget for avatar
             self.formfield_overrides = {
                 MyImageField: {
                     'widget': MyClearableFileInput(obj.avatar)},
@@ -106,8 +76,6 @@ class MyUserAdmin(UserAdmin):
             # add form page
             title = 'Add a User'
         extra_context = {'title': title}
-        # self.form.Meta.widgets = {'avatar': CustomClearableFileInput}
-        # self.form.Meta.widgets['avatar'] = CustomClearableFileInput
         return super(MyUserAdmin, self).changeform_view(
             request, object_id, form_url, extra_context=extra_context)
 
