@@ -10,8 +10,6 @@ env/
 
 media/accountapp/img/avatars/avatar*.png
 
-media/test/accountapp/
-
 website/__pycache__/
 
 website/settings/__pycache__/

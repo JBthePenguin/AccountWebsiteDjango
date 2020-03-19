@@ -57,7 +57,7 @@ class MyUser(AbstractUser):
         validators=[
             validate_avatar_size,  # size
             MinSizeValidator(150, 150),  # min dimension
-            MaxSizeValidator(300, 300)],  # max dimension
+            MaxSizeValidator(500, 500)],  # max dimension
         delete_orphans=True,  # delete orphaned files
         blank=True,)
     date_of_birth = models.DateField(blank=True, null=True)

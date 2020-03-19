@@ -21,11 +21,12 @@ class MyUserModelTests(TestCase):
         """ test method __str__()"""
         self.assertEqual(self.user.username, 'testuser')
 
-    def upload_avatar(self, filename):
-        """ upload and save a new image file for avatar """
+    def upload_avatar(self, filename, commit=True):
+        """ upload with save_form_data and save a new image file for avatar """
         avatar = open(settings.MEDIA_ROOT + filename, 'rb')
-        self.user.avatar = File(avatar)
-        self.user.save()
+        self.user.avatar.field.save_form_data(self.user, File(avatar))
+        if commit is True:
+            self.user.save()
         avatar.close()
 
     def check_avatar_urls(self):
@@ -50,21 +51,23 @@ class MyUserModelTests(TestCase):
         """ test for image field avatar
         save upload and delete """
         # urls saved and uploaded files
-        self.upload_avatar('test150.png')
+        self.upload_avatar('accountapp/img/test150.png')
         self.check_avatar_urls()
         self.check_avatar_files()
         # sizes image
         self.assertEqual(self.user.avatar.width, self.user.avatar.height, 150)
         # new avatar uploaded
-        avatar = open(settings.MEDIA_ROOT + 'test300.png', 'rb')
-        self.user.avatar.field.save_form_data(self.user, File(avatar))
-        self.user.save()
-        avatar.close()
+        self.upload_avatar('accountapp/img/test300.png')
         self.check_avatar_urls()
         self.check_avatar_files()
         # sizes of new avatar
         self.assertEqual(self.user.avatar.width, self.user.avatar.height, 300)
-        # delete avatar
+        # add to big size image > 50kb
+        origin_avatar = self.user.avatar._file
+        self.upload_avatar('accountapp/img/test500.png', commit=False)
+        self.assertEqual(self.user.avatar.width, self.user.avatar.height, 300)
+        # clear avatar
+        self.user.avatar.field.save_form_data(self.user, origin_avatar)
         self.user.avatar.delete()
 
 
