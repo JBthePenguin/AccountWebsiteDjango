@@ -4,20 +4,15 @@ from selenium.webdriver.support import expected_conditions as EC
 from .browser import Browser
 
 
-class TemplatesTests(Browser):
-    """ class test for templates
-    - titles (site, navbar, page)
+class TemplatesContent(Browser):
+    """ Base class test for templates
+    - title site
     - links
     - content """
 
-    def test_base(self):
-        """ test the base template
-        - title site: title_site | page_title """
-        # titles site
-        titles = [
-            ('home', 'Home'),
-            ('page one', 'Page 1'),
-            ('page two', 'Page 2'), ]
+    def site_titles(self, titles):
+        """ test the site titles format
+        - title_site | page_title """
         for title in titles:
             self.selenium.get(
                 '%s%s' % (self.live_server_url, reverse(title[0])))
@@ -34,6 +29,52 @@ class TemplatesTests(Browser):
         self.assertEqual(
             self.selenium.current_url,
             '%s%s' % (self.live_server_url, link_url))
+
+    def link_new_tab(self, link, title_page, url):
+        """ test if a click on a link open the correct url
+        in a new tab, close it and switch to initial tab  """
+        # click
+        link.click()
+        # wait new tab opened, get current tab and switch to the new
+        self.wait.until(EC.number_of_windows_to_be(2))
+        current_tab = self.selenium.current_window_handle
+        self.selenium.switch_to_window(self.selenium.window_handles[1])
+        self.wait.until(EC.title_contains(title_page))
+        # verify url
+        self.assertEqual(self.selenium.current_url, url)
+        # close tab and switch to initial tab
+        self.selenium.close()
+        self.selenium.switch_to_window(current_tab)
+
+    def header_content(self, title):
+        """ test the header of a page
+        - title
+        - number of paragraph in main """
+        header = self.selenium.find_element_by_tag_name('header')
+        title_header = header.find_element_by_tag_name('h1')
+        self.assertEqual(title, title_header.text)
+
+    def tag_number(self, tag_name, num_tags):
+        """ test the number of a tag in main """
+        main = self.selenium.find_element_by_tag_name('main')
+        tags_in_main = main.find_elements_by_tag_name(tag_name)
+        self.assertEqual(num_tags, len(tags_in_main))
+
+
+class VisitTemplatesTests(TemplatesContent):
+    """ class test for templates
+    - titles (site, navbar, page)
+    - links
+    - content """
+
+    def test_base(self):
+        """ test the base template
+        - titles site """
+        titles = [
+            ('home', 'Home'),
+            ('page one', 'Page 1'),
+            ('page two', 'Page 2'), ]
+        self.site_titles(titles)
 
     def test_navbar(self):
         """ test the navbar template
@@ -80,22 +121,6 @@ class TemplatesTests(Browser):
                         other_nav_item.get_attribute('class'))
                 i += 1
 
-    def link_new_tab(self, link, title_page, url):
-        """ test if a click on a link open the correct url
-        in a new tab, close it and switch to initial tab  """
-        # click
-        link.click()
-        # wait new tab opened, get current tab and switch to the new
-        self.wait.until(EC.number_of_windows_to_be(2))
-        current_tab = self.selenium.current_window_handle
-        self.selenium.switch_to_window(self.selenium.window_handles[1])
-        self.wait.until(EC.title_contains(title_page))
-        # verify url
-        self.assertEqual(self.selenium.current_url, url)
-        # close tab and switch to initial tab
-        self.selenium.close()
-        self.selenium.switch_to_window(current_tab)
-
     def test_footer(self):
         """ test the footer template
         - social links url in new tab
@@ -123,33 +148,23 @@ class TemplatesTests(Browser):
             email.replace("mailto:", ""),
             'jbthepenguin@netcourrier.com')
 
-    def page_content(self, title, n_p_tags):
-        """ test the content of a page
-        - title in header
-        - number of paragraph in main """
-        # title in header
-        header = self.selenium.find_element_by_tag_name('header')
-        title_header = header.find_element_by_tag_name('h1')
-        self.assertEqual(title, title_header.text)
-        # n paragrah
-        main = self.selenium.find_element_by_tag_name('main')
-        p_tags_in_main = main.find_elements_by_tag_name('p')
-        self.assertEqual(n_p_tags, len(p_tags_in_main))
-
     def test_home_template(self):
         """ test the home template
         - page content: title, n paragrah """
         self.selenium.get('%s%s' % (self.live_server_url, reverse('home')))
-        self.page_content('Home page', 3)
+        self.header_content('Home page')
+        self.tag_number('p', 3)
 
     def test_page_one_template(self):
         """ test the page one template
         - page content: title, n paragrah """
         self.selenium.get('%s%s' % (self.live_server_url, reverse('page one')))
-        self.page_content('Page one', 1)
+        self.header_content('Page one')
+        self.tag_number('p', 1)
 
     def test_page_two_template(self):
         """ test the page two template
         - page content: title, n paragrah """
         self.selenium.get('%s%s' % (self.live_server_url, reverse('page two')))
-        self.page_content('Page two', 6)
+        self.header_content('Page two')
+        self.tag_number('p', 6)

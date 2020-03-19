@@ -11,13 +11,10 @@ class Browser(StaticLiveServerTestCase):
         """ init a browser before test"""
         super().setUpClass()
         cls.selenium = WebDriver()
+        cls.wait = WebDriverWait(cls.selenium, 10)
 
     @classmethod
     def tearDownClass(cls):
         """ close the browser after test """
         cls.selenium.quit()
         super().tearDownClass()
-
-    def setUp(self):
-        """ init wait """
-        self.wait = WebDriverWait(self.selenium, 10)
