@@ -62,7 +62,7 @@ class TemplatesContent(Browser):
 
 
 class VisitTemplatesTests(TemplatesContent):
-    """ class test for templates
+    """ class test for templates in visitapp
     - titles (site, navbar, page)
     - links
     - content """
@@ -107,11 +107,13 @@ class VisitTemplatesTests(TemplatesContent):
                 self.assertIn('active', nav_item.get_attribute('class'))
                 # not active links
                 if i == 0:
-                    other_links = [nav_links[1], nav_links[2]]
+                    other_links = [nav_links[1], nav_links[2], nav_links[3]]
                 elif i == 1:
-                    other_links = [nav_links[0], nav_links[2]]
+                    other_links = [nav_links[0], nav_links[2], nav_links[3]]
+                elif i == 2:
+                    other_links = [nav_links[0], nav_links[1], nav_links[3]]
                 else:
-                    other_links = [nav_links[0], nav_links[1]]
+                    other_links = [nav_links[0], nav_links[1], nav_links[2]]
                 for other_link in other_links:
                     other_link = nav_bar.find_element_by_link_text(
                         other_link[0])

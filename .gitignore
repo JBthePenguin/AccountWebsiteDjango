@@ -30,4 +30,8 @@ visitapp/tests/img_responsive/page_one/*.png
 
 visitapp/tests/img_responsive/page_two/*.png
 
+accountapp/tests/img_responsive/dashboard/*.png
 
+accountapp/tests/img_responsive/login/*.png
+
+accountapp/tests/img_responsive/usernavbar/*.png

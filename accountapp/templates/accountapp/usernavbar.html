@@ -2,8 +2,8 @@
 
 <ul class="navbar-nav ml-auto mr-2">
     <!-- user  -->
-    <li class="nav-item {{ login_in_nav }}">
-        <a class="nav-link {{ user_in_nav }}" href="{% url 'dashboard' %}">{% fa5_icon 'user-cog' 'fas' %} {{ user.username }}</a>
+    <li class="nav-item {{ user_in_nav }}">
+        <a class="nav-link" href="{% url 'dashboard' %}">{% fa5_icon 'user-cog' 'fas' %} {{ user.username }}</a>
     </li>
     <!-- logout -->
     <li class="nav-item">
