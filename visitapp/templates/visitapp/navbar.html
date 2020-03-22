@@ -34,8 +34,8 @@
                 <li class="nav-item {{ login_in_nav }}">
                     <a class="nav-link" href="{% url 'login' %}">{% fa5_icon 'sign-in-alt' 'fas' %} Login</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">{% fa5_icon 'user-plus' 'fas' %} Sign Up</a>
+                <li class="nav-item {{ register_in_nav }}">
+                    <a class="nav-link" href="{% url 'django_registration_register' %}">{% fa5_icon 'user-plus' 'fas' %} Sign Up</a>
                 </li>
             </ul>
         {% endif %}

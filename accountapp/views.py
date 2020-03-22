@@ -3,7 +3,21 @@ from django.urls import reverse
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
+from django_registration.backends.activation.views import RegistrationView
+from .forms import MyRegistrationForm
 from visitapp.views import DEFAULT_CONTEXT
+
+
+class MyRegistrationView(RegistrationView):
+    form_class = MyRegistrationForm
+    # template_name = 'registration/register.html'
+    extra_context = {
+        'page_title': 'Register',
+        'register_in_nav': 'active',
+    }
+    extra_context.update(DEFAULT_CONTEXT)
+    # email_subject_template = 'registration/activation_email_subject.txt'
+    # email_body_template = 'registration/activation_email_body.txt'
 
 
 class MyLoginView(LoginView):

@@ -1,8 +1,28 @@
 from django.forms.widgets import ClearableFileInput
+from django_registration.forms import RegistrationFormUniqueEmail
+from .models import MyUser
+
+
+class MyRegistrationForm(RegistrationFormUniqueEmail):
+    """ form that add unique contraint for email """
+    class Meta(RegistrationFormUniqueEmail.Meta):
+        model = MyUser
+
+    def __init__(self, *args, **kwargs):
+        super(MyRegistrationForm, self).__init__(*args, **kwargs)
+        # change placeholder
+        self.fields['username'].widget.attrs['placeholder'] = "YourUsername"
+        self.fields['email'].widget.attrs[
+            'placeholder'] = "youremail@address.com"
+        self.fields['password1'].widget.attrs['placeholder'] = "YourPassword"
+        self.fields['password2'].widget.attrs['placeholder'] = "SamePassword"
+        # remove help text
+        for fieldname in ['username', 'email', 'password1', 'password2']:
+            self.fields[fieldname].help_text = None
 
 
 class MyClearableFileInput(ClearableFileInput):
-    """ custom clearable input to display it on form error """
+    """ custom clearable input to display it on form error in admin site """
     template_name = "accountapp/clearable_file_input.html"
 
     def __init__(self, default_avatar):

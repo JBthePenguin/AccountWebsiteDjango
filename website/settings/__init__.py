@@ -143,3 +143,15 @@ AUTH_USER_MODEL = 'accountapp.MyUser'
 LOGIN_URL = 'login'
 # Logout redirect
 LOGOUT_REDIRECT_URL = 'home'
+
+# Email activation
+REGISTRATION_OPEN = True
+ACCOUNT_ACTIVATION_DAYS = 1
+
+# Confirmation email
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'testing@example.com'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = False
+EMAIL_PORT = 1025
